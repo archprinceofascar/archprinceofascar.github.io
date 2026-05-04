@@ -1,22 +1,17 @@
 /* =========================
-   IMPORT FONTS
-========================= */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap');
-
-/* =========================
-   ROOT
+   BASE
 ========================= */
 :root {
-    --bg: #faf9f6;
-    --paper: #ffffff;
-    --ink: #1c1c1c;
-    --muted: #6b6b6b;
-    --line: #e2e2e2;
-    --accent: #7a5c2e;
+    --gov-black: #0b0c0c;
+    --gov-blue: #1d70b8;
+    --gov-light-grey: #f3f2f1;
+    --gov-mid-grey: #b1b4b6;
+    --gov-dark-grey: #505a5f;
+    --gov-white: #ffffff;
 }
 
 /* =========================
-   GLOBAL
+   RESET
 ========================= */
 * {
     box-sizing: border-box;
@@ -24,114 +19,76 @@
 
 body {
     margin: 0;
-    background: var(--bg);
-    color: var(--ink);
-    font-family: "Inter", sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--gov-black);
+    background: var(--gov-light-grey);
+    line-height: 1.5;
 }
 
 /* =========================
-   HEADER (MINIMAL / EDITORIAL)
+   HEADER (BLACK BAR)
 ========================= */
 header {
-    text-align: center;
-    padding: 60px 20px 30px;
+    background: var(--gov-black);
+    color: var(--gov-white);
+    padding: 15px 20px;
 }
 
 header h1 {
-    font-family: "Playfair Display", serif;
-    font-size: 2.8rem;
     margin: 0;
-    letter-spacing: 0.5px;
-}
-
-header p {
-    margin-top: 8px;
-    font-size: 0.95rem;
-    color: var(--muted);
-    letter-spacing: 1px;
-    text-transform: uppercase;
+    font-size: 1.4rem;
+    font-weight: bold;
 }
 
 /* =========================
-   NAV (UNDERSTATED LINE NAV)
+   NAV (SIMPLE, FUNCTIONAL)
 ========================= */
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 15px 0;
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    background: var(--paper);
+    background: var(--gov-white);
+    border-bottom: 1px solid var(--gov-mid-grey);
+    padding: 10px 20px;
 }
 
 nav a {
+    margin-right: 20px;
     text-decoration: none;
-    color: var(--muted);
+    color: var(--gov-blue);
     font-size: 0.95rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    position: relative;
-    padding-bottom: 5px;
-}
-
-/* subtle underline */
-nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 1px;
-    width: 0;
-    background: var(--accent);
-    transition: width 0.25s ease;
 }
 
 nav a:hover {
-    color: var(--ink);
-}
-
-nav a:hover::after {
-    width: 100%;
+    text-decoration: underline;
 }
 
 /* =========================
-   MAIN LAYOUT
+   MAIN CONTENT
 ========================= */
 .container {
-    max-width: 720px;
-    margin: 60px auto;
-    padding: 0 20px;
+    max-width: 960px;
+    margin: 30px auto;
+    background: var(--gov-white);
+    padding: 30px 20px;
+    border: 1px solid var(--gov-mid-grey);
 }
 
 /* =========================
    TYPOGRAPHY
 ========================= */
 h2 {
-    font-family: "Playfair Display", serif;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-top: 0;
 }
 
 p {
-    color: var(--muted);
     font-size: 1rem;
-}
-
-/* =========================
-   SECTION DIVIDER
-========================= */
-hr {
-    border: none;
-    border-top: 1px solid var(--line);
-    margin: 40px 0;
+    margin-bottom: 15px;
 }
 
 /* =========================
    LINKS
 ========================= */
 a {
-    color: var(--accent);
+    color: var(--gov-blue);
 }
 
 a:hover {
@@ -142,28 +99,31 @@ a:hover {
    FOOTER
 ========================= */
 footer {
+    margin-top: 40px;
+    padding: 20px;
+    background: var(--gov-light-grey);
+    border-top: 1px solid var(--gov-mid-grey);
     text-align: center;
-    padding: 40px 20px;
-    font-size: 0.85rem;
-    color: var(--muted);
-    border-top: 1px solid var(--line);
-    margin-top: 60px;
+    font-size: 0.9rem;
+    color: var(--gov-dark-grey);
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media (max-width: 600px) {
-    nav {
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
     .container {
-        margin: 40px auto;
+        margin: 10px;
+        padding: 20px;
+    }
+
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    nav a {
+        margin-right: 10px;
     }
 }
