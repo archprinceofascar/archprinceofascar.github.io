@@ -1,89 +1,158 @@
-<style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #34495e;
-            --accent: #c5a46d;
-            --background: #f4f1ea;
-            --text: #1a1a1a;
-        }
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+    --primary: #2c3e50;
+    --secondary: #34495e;
+    --accent: #c5a46d;
+    --background: #f4f1ea;
+    --text: #1a1a1a;
+}
 
-        body {
-            margin: 0;
-            font-family: Georgia, "Times New Roman", serif;
-            background: var(--background);
-            color: var(--text);
-        }
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    box-sizing: border-box;
+}
 
-        header {
-            background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
-                        url('https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba');
-            background-size: cover;
-            background-position: center;
-            color: white;
-            text-align: center;
-            padding: 80px 20px;
-        }
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+}
 
-        header h1 {
-            margin: 0;
-            font-size: 3em;
-            letter-spacing: 1px;
-        }
+/* =========================
+   HEADER
+========================= */
+header {
+    background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
+                url('https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+}
 
-        header p {
-            margin-top: 10px;
-            font-style: italic;
-            opacity: 0.9;
-        }
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    letter-spacing: 1px;
+}
 
-        nav {
-            background: var(--secondary);
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
+header p {
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.9;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1em;
-            position: relative;
-        }
+/* =========================
+   NAVIGATION
+========================= */
+nav {
+    background: var(--secondary);
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
 
-        nav a::after {
-            content: "";
-            display: block;
-            height: 2px;
-            width: 0;
-            background: var(--accent);
-            transition: 0.3s;
-            margin-top: 5px;
-        }
+nav a {
+    color: rgba(255,255,255,0.9);
+    text-decoration: none;
+    font-size: 1.1em;
+    position: relative;
+    transition: color 0.3s ease;
+}
 
-        nav a:hover::after {
-            width: 100%;
-        }
+nav a:visited {
+    color: rgba(255,255,255,0.9);
+}
 
-        .container {
-            max-width: 900px;
-            margin: 40px auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
+nav a:hover {
+    color: var(--accent);
+}
 
-        h2 {
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 10px;
-        }
+/* underline animation */
+nav a::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.3s ease;
+    margin-top: 5px;
+}
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: var(--secondary);
-            color: white;
-            margin-top: 40px;
-        }
-    </style>
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   MAIN CONTENT CONTAINER
+========================= */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 40px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* =========================
+   HEADINGS
+========================= */
+h2 {
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 10px;
+    margin-top: 0;
+}
+
+/* =========================
+   LINKS (GLOBAL)
+========================= */
+a {
+    color: var(--primary);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--secondary);
+    color: white;
+    margin-top: 40px;
+}
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+@media (max-width: 600px) {
+    header {
+        padding: 50px 15px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+}
