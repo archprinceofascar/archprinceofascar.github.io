@@ -1,16 +1,22 @@
 /* =========================
-   ROOT VARIABLES
+   IMPORT FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500&display=swap');
+
+/* =========================
+   ROOT
 ========================= */
 :root {
-    --primary: #2c3e50;
-    --secondary: #34495e;
-    --accent: #c5a46d;
-    --background: #f4f1ea;
-    --text: #1a1a1a;
+    --bg: #faf9f6;
+    --paper: #ffffff;
+    --ink: #1c1c1c;
+    --muted: #6b6b6b;
+    --line: #e2e2e2;
+    --accent: #7a5c2e;
 }
 
 /* =========================
-   GLOBAL RESET
+   GLOBAL
 ========================= */
 * {
     box-sizing: border-box;
@@ -18,74 +24,71 @@
 
 body {
     margin: 0;
-    font-family: Georgia, "Times New Roman", serif;
-    background: var(--background);
-    color: var(--text);
-    line-height: 1.6;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter", sans-serif;
 }
 
 /* =========================
-   HEADER
+   HEADER (MINIMAL / EDITORIAL)
 ========================= */
 header {
-    background: linear-gradient(rgba(44,62,80,0.9), rgba(44,62,80,0.9)),
-                url('https://images.unsplash.com/photo-1528909514045-2fa4ac7a08ba');
-    background-size: cover;
-    background-position: center;
-    color: white;
     text-align: center;
-    padding: 80px 20px;
+    padding: 60px 20px 30px;
 }
 
 header h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 2.8rem;
     margin: 0;
-    font-size: 3em;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
 }
 
 header p {
-    margin-top: 10px;
-    font-style: italic;
-    opacity: 0.9;
+    margin-top: 8px;
+    font-size: 0.95rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 /* =========================
-   NAVIGATION
+   NAV (UNDERSTATED LINE NAV)
 ========================= */
 nav {
-    background: var(--secondary);
     display: flex;
     justify-content: center;
-    gap: 30px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    gap: 40px;
+    padding: 15px 0;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
 }
 
 nav a {
-    color: rgba(255,255,255,0.9);
     text-decoration: none;
-    font-size: 1.1em;
+    color: var(--muted);
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     position: relative;
-    transition: color 0.3s ease;
+    padding-bottom: 5px;
 }
 
-nav a:visited {
-    color: rgba(255,255,255,0.9);
+/* subtle underline */
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background: var(--accent);
+    transition: width 0.25s ease;
 }
 
 nav a:hover {
-    color: var(--accent);
-}
-
-/* underline animation */
-nav a::after {
-    content: "";
-    display: block;
-    height: 2px;
-    width: 0;
-    background: var(--accent);
-    transition: width 0.3s ease;
-    margin-top: 5px;
+    color: var(--ink);
 }
 
 nav a:hover::after {
@@ -93,34 +96,46 @@ nav a:hover::after {
 }
 
 /* =========================
-   MAIN CONTENT CONTAINER
+   MAIN LAYOUT
 ========================= */
 .container {
-    max-width: 900px;
-    margin: 40px auto;
-    background: white;
-    padding: 40px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    max-width: 720px;
+    margin: 60px auto;
+    padding: 0 20px;
 }
 
 /* =========================
-   HEADINGS
+   TYPOGRAPHY
 ========================= */
 h2 {
-    border-bottom: 2px solid var(--accent);
-    padding-bottom: 10px;
-    margin-top: 0;
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+p {
+    color: var(--muted);
+    font-size: 1rem;
 }
 
 /* =========================
-   LINKS (GLOBAL)
+   SECTION DIVIDER
+========================= */
+hr {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 40px 0;
+}
+
+/* =========================
+   LINKS
 ========================= */
 a {
-    color: var(--primary);
+    color: var(--accent);
 }
 
 a:hover {
-    color: var(--accent);
+    text-decoration: underline;
 }
 
 /* =========================
@@ -128,31 +143,27 @@ a:hover {
 ========================= */
 footer {
     text-align: center;
-    padding: 20px;
-    background: var(--secondary);
-    color: white;
-    margin-top: 40px;
+    padding: 40px 20px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    border-top: 1px solid var(--line);
+    margin-top: 60px;
 }
 
 /* =========================
-   RESPONSIVE DESIGN
+   RESPONSIVE
 ========================= */
 @media (max-width: 600px) {
-    header {
-        padding: 50px 15px;
+    nav {
+        flex-wrap: wrap;
+        gap: 20px;
     }
 
     header h1 {
-        font-size: 2em;
-    }
-
-    nav {
-        flex-direction: column;
-        gap: 10px;
+        font-size: 2rem;
     }
 
     .container {
-        margin: 20px;
-        padding: 20px;
+        margin: 40px auto;
     }
 }
